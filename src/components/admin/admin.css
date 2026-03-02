@@ -1,0 +1,135 @@
+/* ==== Container du modal ==== */
+.insert-filiere-modal .modal-dialog {
+    max-width: 600px;
+    margin: auto;
+    animation: fadeInDown 0.4s ease-out;
+  }
+
+  @keyframes fadeInDown {
+    from { transform: translateY(-20px); opacity: 0; }
+    to   { transform: translateY(0); opacity: 1; }
+  }
+
+  /* ==== Formulaire ==== */
+  .insert-filiere-form {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  /* Header */
+  .iff-header {
+    background: linear-gradient(90deg, #4f46e5, #6366f1);
+    color: white;
+    border-bottom: none;
+    justify-content: center;
+  }
+  .iff-header h3 {
+    margin: 0;
+    font-weight: 500;
+  }
+
+  /* Body */
+  .iff-body {
+    padding: 1.5rem;
+    overflow-y: auto;
+  }
+  .iff-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+  }
+  .iff-group label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #374151;
+  }
+  .iff-group input,
+  .iff-group textarea {
+    padding: 0.6rem 0.8rem;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    transition: border-color 0.2s;
+    font-size: 1rem;
+    color: #1f2937;
+  }
+  .iff-group input:focus,
+  .iff-group textarea:focus {
+    outline: none;
+    border-color: #4f46e5;
+    box-shadow: 0 0 0 2px rgba(99,102,241,0.2);
+  }
+
+  /* FilePond custom */
+  .iff-filepond {
+    --filepond-panel-background-color: #fafafa;
+    --filepond-item-background-color: #fff;
+    --filepond-item-panel-background-color: #f3f4f6;
+    --filepond-font-size-base: 0.9rem;
+    --filepond-border-radius: 8px;
+    margin-top: 0.5rem;
+  }
+
+  /* Footer */
+  .iff-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    background: #f9fafb;
+    border-top: none;
+  }
+
+  /* Boutons */
+  .iff-btn {
+    padding: 0.6rem 1.4rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: none;
+  }
+
+  .iff-btn.submit {
+    background: linear-gradient(90deg, #11af53, #077d1e);
+    color: #fff;
+  }
+  .iff-btn.submit:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(56, 202, 131, 0.3);
+  }
+
+  .iff-btn.cancel {
+    background: #dc0b0b;
+    color: #ffffff;
+  }
+  .iff-btn.cancel:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+
+  /* Responsive */
+  @media (max-width: 576px) {
+    .insert-filiere-modal .modal-dialog {
+      max-width: 95%;
+    }
+    .iff-footer {
+      flex-direction: column-reverse;
+      gap: 0.5rem;
+    }
+    .iff-btn {
+      width: 100%;
+    }
+  }
+/*affichefiliereadmin*/
+.modal-content {
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.modal-title {
+  font-weight: bold;
+}
+.modal-body {
+  font-size: 16px;
+}

@@ -1,0 +1,209 @@
+/* si vous êtes dans user.css ou un fichier global */
+.btn-new-course {
+  background-color: #28a745;    /* vert Bootstrap “success” */
+  border-color: #28a745;
+  color: #ffffff;               /* texte blanc */
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-new-course:hover {
+  background-color: #25b244;    /* vert un peu plus foncé au hover */
+  border-color: #1e7e34;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* optionnel : pour espacer l’icône */
+.btn-new-course svg {
+  margin-right: 0.5rem;
+  font-size: 1.2rem;
+  vertical-align: middle;
+}
+/* filieredetails.css ou user.css */
+.search-input,
+.cours-filter-wrapper select,
+.barre-recherche-wrapper input {
+  flex: 1;
+  padding: 0.6rem 1rem; /* Padding ajusté */
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-md);
+  font-size: 1rem;
+  color: var(--dark-gray);
+  transition: all var(--transition-speed) ease;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.08); /* Ombre intérieure subtile */
+}
+
+.search-input:focus,
+.cours-filter-wrapper select:focus,
+.barre-recherche-wrapper input:focus {
+  outline: none;
+  border-color: var(--primary-color); /* Bordure bleue au focus */
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25); /* Anneau de focus bleu */
+}
+
+/* filieredetails.css */
+
+.filters-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.cours-filter-wrapper select {
+  /* Ajustez la largeur du sélecteur si besoin */
+  width: 160px;
+}
+
+.barre-recherche-wrapper input {
+  /* Ajustez la largeur de la barre de recherche */
+  width: 240px;
+}
+
+/* Responsive : si l’écran est trop étroit, on fait passer en deux lignes */
+@media (max-width: 600px) {
+  .filters-row {
+    flex-wrap: wrap;
+  }
+  .cours-filter-wrapper,
+  .barre-recherche-wrapper {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+}
+/* filieredetails.css */
+
+.filters-row {
+  display: flex;
+  justify-content: center;  /* centre horizontalement le contenu */
+  align-items: center;      /* aligne verticalement */
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Si vous souhaitez limiter la largeur totale du conteneur, vous pouvez par exemple : */
+/* .filters-row {
+     max-width: 800px;
+     margin: 0 auto 1.5rem;  // ceci centre le bloc .filters-row dans la page
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     gap: 1rem;
+   }
+*/
+
+.cours-filter-wrapper select {
+  width: 160px; /* ajustez la largeur du select selon votre besoin */
+}
+
+.barre-recherche-wrapper input {
+  width: 240px; /* ajustez la largeur de l’input si nécessaire */
+}
+
+/* Pour le responsive, si l’écran est étroit, on se replace en deux lignes */
+@media (max-width: 600px) {
+  .filters-row {
+    flex-wrap: wrap;
+  }
+  .cours-filter-wrapper,
+  .barre-recherche-wrapper {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+}
+.niveau-filtres {
+  display: flex;
+  justify-content: center;    /* Centre horizontalement la rangée */
+  align-items: center;        /* Centre verticalement si plusieurs hauteurs */
+  gap: 1rem;                  /* Espace entre chaque bouton */
+  flex-wrap: wrap;            /* Repasse à la ligne si l’écran est étroit */
+  margin-bottom: 0.75rem;     /* Petit espace sous la rangée de boutons */
+}
+
+/* Style de chaque bouton de niveau */
+.niveau-btn {
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  color: #333;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.niveau-btn:hover {
+  background-color: #e2e2e2;
+}
+
+.niveau-btn--actif {
+  background-color: #007bff;  /* bleu */
+  color: #fff;                /* texte blanc */
+  border-color: #007bff;
+}
+
+/* 2ᵉ ligne : barre de recherche centrée sous les filtres */
+.recherche-ligne {
+  display: flex;
+  justify-content: center;   /* Centre horizontalement l’input */
+  align-items: center;
+  margin-bottom: 1.5rem;      /* Espace sous la barre de recherche */
+}
+
+/* Styles pour l’input de recherche */
+.barre-recherche-wrapper input {
+  width: 280px;              /* Largeur fixe, à adapter si besoin */
+  max-width: 100%;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.95rem;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  transition: border-color 0.2s;
+}
+
+.barre-recherche-wrapper input:focus {
+  outline: none;
+  border-color: #007bff;     /* Bleu au focus */
+  box-shadow: 0 0 3px rgba(0, 123, 255, 0.5);
+}
+/* ———————————————— */
+/* Boutons “Sous-filières” en vert */
+
+.sous-filiere-filtres .niveau-btn {
+  background-color: #e0f7fa;   /* fond cyan clair */
+  border-color: #4dd0e1;       /* bordure cyan */
+  color: #006064;              /* texte bleu foncé */
+}
+
+.sous-filiere-filtres .niveau-btn:hover {
+  background-color: #b2ebf2;   /* hover un peu plus soutenu */
+}
+
+.sous-filiere-filtres .niveau-btn--actif {
+  background-color: #00838f;   /* cyan plus foncé pour le actif */
+  border-color: #006064;
+  color: #ffffff;              /* texte blanc */
+}
+.reset-button {
+  margin-left: 10px;
+  padding: 8px 16px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.reset-button:hover {
+  background-color: #e0e0e0;
+}
+/* Ensure toast notification blends with your app's theme */
+.Toastify__toast--warn {
+  background-color: #ff9800; /* Orange for warning */
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+

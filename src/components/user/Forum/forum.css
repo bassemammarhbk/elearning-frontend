@@ -1,0 +1,331 @@
+/* frontend/src/components/user/Forum/forum.css */
+
+/* --------- Variables scoping uniquement au conteneur Forum --------- */
+:root {
+    --forum-primary: #6366f1; /* Bleu-violet principal */
+    --forum-primary-dark: #4f46e5;
+    --forum-secondary: #10b981; /* Vert secondaire */
+    --forum-accent: #f97316; /* Orange accent */
+    --forum-background: #f0f4f8; /* Arrière-plan doux */
+    --forum-card-bg: #ffffff; /* Fond de carte blanc */
+    --forum-text-dark: #1e293b; /* Texte sombre */
+    --forum-text-medium: #4a5568; /* Texte moyen */
+    --forum-border: #e2e8f0; /* Couleur de bordure */
+    --forum-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+    --forum-shadow-md: 0 5px 15px rgba(0, 0, 0, 0.1);
+    --forum-transition-speed: 0.3s;
+    --forum-border-radius-sm: 8px;
+    --forum-border-radius-md: 12px;
+
+    /* Couleurs spécifiques aux actions Modifier/Supprimer */
+    --edit-button-bg: #2196f3; /* Bleu clair */
+    --edit-button-hover-bg: #1976d2; /* Bleu plus foncé */
+    --delete-button-bg: #f44336; /* Rouge */
+    --delete-button-hover-bg: #d32f2f; /* Rouge plus foncé */
+}
+.forum-forum-container {
+  --primary-color: #2563eb;
+  --secondary-color: #3b82f6;
+  --background-color: #f8fafc;
+  --text-color: #1e293b;
+  --border-color: #e2e8f0;
+  --teacher-color: #059669;
+  --student-color: #6366f1;
+
+  /* Styles généraux du conteneur Forum */
+  max-width: 900px;
+  margin: 2rem auto;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  overflow: hidden;
+}
+
+/* --------- En‑tête (titre + bouton retour) --------- */
+.forum-forum-header {
+  background: var(--primary-color);
+  color: white;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.forum-back-button {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.forum-forum-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.forum-title-group {
+  display: flex;
+  flex-direction: column;
+  margin-left: 0.5rem;
+}
+
+.forum-main-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.forum-course-name {
+  margin: 0;
+  font-size: 1.25rem;
+  opacity: 0.9;
+}
+
+/* --------- Navigation des onglets --------- */
+.forum-forum-nav {
+  display: flex;
+  padding: 1rem;
+  gap: 1rem;
+  background: var(--background-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.forum-nav-button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 8px;
+  background: white;
+  color: var(--text-color);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+.forum-nav-button:hover {
+  background: var(--secondary-color);
+  color: white;
+}
+
+.forum-nav-button.forum-active {
+  background: var(--primary-color);
+  color: white;
+}
+
+/* --------- Conteneur des messages --------- */
+.forum-messages-container {
+  padding: 1rem;
+  height: 500px;
+  overflow-y: auto;
+  background: var(--background-color);
+}
+
+/* --------- Animation et style des messages --------- */
+.forum-message {
+  background: white;
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  animation: forum-slideIn 0.3s ease-out;
+}
+
+@keyframes forum-slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Bordure latérale selon rôle */
+.forum-teacher {
+  border-left: 4px solid var(--teacher-color);
+}
+
+.forum-student {
+  border-left: 4px solid var(--student-color);
+}
+
+/* --------- En‑tête de chaque message --------- */
+.forum-message-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.forum-author-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.forum-role-icon {
+  width: 18px;
+  height: 18px;
+  color: var(--text-color);
+}
+
+.forum-author-name {
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.forum-timestamp {
+  color: #64748b;
+  font-size: 0.875rem;
+}
+
+.forum-message-content {
+  color: var(--text-color);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* --------- Formulaire d’envoi --------- */
+.forum-message-form {
+  display: flex;
+  padding: 1rem;
+  gap: 1rem;
+  background: white;
+  border-top: 1px solid var(--border-color);
+}
+
+.forum-message-input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.2s ease;
+}
+
+.forum-message-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+.forum-send-button {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.forum-send-button:hover {
+  background: var(--secondary-color);
+}
+
+.forum-send-icon {
+  width: 20px;
+  height: 20px;
+}
+.forum-message-actions {
+    display: flex;
+    gap: 6px; /* Espacement réduit entre les boutons */
+    align-items: center;
+}
+
+.forum-action-button {
+    background: none;
+    border: none;
+    padding: 6px; /* Taille légèrement réduite pour compacité */
+    border-radius: 50%; /* Boutons circulaires */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all var(--forum-transition-speed) ease;
+    box-shadow: var(--forum-shadow-sm); /* Ombre légère */
+}
+
+.forum-edit-button {
+    background-color: var(--edit-button-bg); /* Bleu clair */
+    color: white;
+}
+
+.forum-edit-button:hover {
+    background-color: var(--edit-button-hover-bg); /* Bleu foncé */
+    transform: translateY(-2px); /* Soulèvement au survol */
+    box-shadow: var(--forum-shadow-md); /* Ombre plus marquée */
+}
+
+.forum-delete-button {
+    background-color: var(--delete-button-bg); /* Rouge */
+    color: white;
+}
+
+.forum-delete-button:hover {
+    background-color: var(--delete-button-hover-bg); /* Rouge foncé */
+    transform: translateY(-2px); /* Soulèvement au survol */
+    box-shadow: var(--forum-shadow-md); /* Ombre plus marquée */
+}
+
+/* Animation de pulsation au clic */
+@keyframes buttonPulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.forum-action-button:active {
+    animation: buttonPulse 0.2s ease; /* Effet de pulsation au clic */
+}
+
+.forum-teacher {
+    border-left: 5px solid var(--forum-primary);
+    background-color: #eef2ff; /* Couleur de fond pour les messages de l'enseignant */
+}
+
+.forum-student {
+    border-left: 5px solid var(--forum-secondary);
+    background-color: #eafaf1; /* Couleur de fond pour les messages de l'étudiant */
+}
+.forum-reply-form {
+  display: flex;
+  margin-top: 8px;
+  gap: 8px;
+}
+
+.forum-reply-input {
+  flex: 1;
+  padding: 6px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.forum-reply-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.forum-reply {
+  margin-left: 20px;
+  border-left: 2px solid #0047ba;
+  padding-left: 10px;
+}
+
+.forum-reply-to {
+  font-size: 0.9em;
+  color: #666;
+  margin-bottom: 5px;
+}

@@ -1,0 +1,86 @@
+/* Variables CSS pour les filières (peut être fusionné avec vos variables globales) */
+:root {
+  --filiere-primary-blue: #4f46e5;
+  --filiere-primary-dark: #4338ca;
+  --filiere-secondary-green: #10b981;
+  --filiere-accent-orange: #f97316;
+  --filiere-background-light: #f0f4f8;
+  --filiere-card-bg: #ffffff;
+  --filiere-text-dark: #1e293b;
+  --filiere-text-medium: #64748b;
+  --filiere-border-color: #e2e8f0;
+  --filiere-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --filiere-shadow-md: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --filiere-shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
+  --filiere-transition-speed: 0.3s ease-out;
+  --filiere-border-radius-sm: 8px;
+  --filiere-border-radius-md: 12px;
+  --filiere-border-radius-lg: 16px;
+  --filiere-font-family: 'Inter', sans-serif; /* Conserve la police Inter */
+}
+
+/* Conteneur principal de la page des filières */
+.filiere-wrapper-unique {
+  background-color: var(--filiere-background-light);
+  min-height: 100vh;
+  padding: 40px 20px;
+  font-family: var(--filiere-font-family);
+  color: var(--filiere-text-dark);
+  box-sizing: border-box;
+}
+
+.filiere-container-unique {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* En-tête de la page */
+.filiere-header-unique {
+  text-align: center;
+  margin-bottom: 60px;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, var(--filiere-primary-blue) 0%, var(--filiere-primary-dark) 100%);
+  border-radius: var(--filiere-border-radius-lg);
+  color: white;
+  box-shadow: var(--filiere-shadow-lg);
+  position: relative;
+  overflow: hidden;
+}
+
+.filiere-header-unique::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  left: -50px;
+  width: 200px;
+  height: 200px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  animation: floatBubble 10s infinite ease-in-out;
+}
+
+.filiere-header-unique::after {
+  content: '';
+  position: absolute;
+  bottom: -70px;
+  right: -70px;
+  width: 250px;
+  height: 250px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  animation: floatBubble 12s infinite reverse ease-in-out;
+}
+
+@keyframes floatBubble {
+  0% { transform: translateY(0) scale(1); opacity: 1; }
+  50% { transform: translateY(-20px) scale(1.05); opacity: 0.8; }
+  100% { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+.filiere-main-title-unique {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 15px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+

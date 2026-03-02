@@ -1,0 +1,1657 @@
+:root {
+  --mescours-primary: #4f46e5;
+  --mescours-primary-dark: #3730a3;
+  --mescours-primary-light: #6366f1;
+  --mescours-secondary: #06b6d4;
+  --mescours-accent: #f59e0b;
+  --mescours-success: #10b981;
+  --mescours-error: #ef4444;
+  --mescours-background: #ffffff;
+  --mescours-surface: #f8fafc;
+  --mescours-text-primary: #0f172a;
+  --mescours-text-secondary: #475569;
+  --mescours-border: #e2e8f0;
+  --mescours-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --mescours-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --mescours-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --mescours-radius-sm: 0.375rem;
+  --mescours-radius-md: 0.5rem;
+  --mescours-radius-lg: 0.75rem;
+  --mescours-radius-xl: 1rem;
+  --mescours-transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+/* Animations */
+.fade-in {
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+.zoom-in {
+  animation: zoomIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* Container */
+.mes-cours-container {
+  padding: 40px 20px;
+  background: linear-gradient(to bottom, #eef2f3, #cfd9df);
+  min-height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Title */
+.mes-cours-title {
+  font-size: 3rem;
+  text-align: center;
+  color: #333;
+  margin-bottom: 40px;
+}
+
+/* Empty state */
+.no-courses {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.no-courses button {
+  margin-top: 15px;
+  background: linear-gradient(to right, #8ca0b2, #a9c1c3);
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+
+.no-courses button:hover {
+  background: linear-gradient(to right, #00f2fe, #4facfe);
+  transform: scale(1.05);
+}
+
+/* Grid */
+.mes-cours-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 30px;
+}
+
+/* Card */
+.mes-cours-card {
+  background: linear-gradient(135deg, #929fd8, #3a2491);
+  color: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  min-height: 500px; /* Ajustez cette valeur selon vos besoins */
+}
+
+.mes-cours-card:hover {
+  transform: translateY(-8px);
+}
+
+.mes-cours-card-header {
+  position: relative;
+  height: 180px;
+  overflow: hidden;
+}
+
+.mes-cours-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.mes-cours-card-header:hover .mes-cours-card-image {
+  transform: scale(1.1);
+}
+
+.mes-cours-card-title {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+/* Infos */
+.mes-cours-card-desc,
+.mes-cours-card-level,
+.mes-cours-card-info,
+.mes-cours-card-modules {
+  padding: 10px 15px;
+  font-size: 1rem;
+}
+
+/* Actions */
+/* Actions */
+.mes-cours-card-actions {
+  margin-top: auto; /* Pushes the container to the bottom */
+  display: flex;
+  flex-direction: column; /* Stack rows vertically */
+  padding: 12px 15px;
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.mes-cours-action-row {
+  display: flex;
+  justify-content: space-between; /* Space buttons evenly */
+  gap: 10px; /* Space between buttons in the same row */
+  margin-bottom: 10px; /* Space between rows */
+}
+
+.mes-cours-action-row:last-child {
+  margin-bottom: 0; /* Remove margin for the last row */
+}
+
+.mes-cours-card-actions button {
+  flex: 1; /* Buttons take equal space in their row */
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center text and icon */
+  gap: 8px;
+  padding: 10px 15px;
+  font-size: 0.95rem;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.mes-cours-edit-btn {
+  background-color: #28a745;
+}
+
+.mes-cours-edit-btn:hover {
+  background-color: #218838;
+  transform: scale(1.05);
+}
+
+.mes-cours-delete-btn {
+  background-color: #dc3545;
+}
+
+.mes-cours-delete-btn:hover {
+  background-color: #c82333;
+  transform: scale(1.05);
+}
+
+.mes-cours-manage-btn {
+  background-color: #007bff;
+}
+
+.mes-cours-manage-btn:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+.icon-small {
+  width: 20px;
+  height: 20px;
+}
+
+/* Loader */
+.loading-container {
+  text-align: center;
+  padding: 80px;
+}
+
+.spinner {
+  width: 45px;
+  height: 45px;
+  border: 5px solid #00bfff;
+  border-top: 5px solid transparent;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin: 0 auto 20px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Error */
+.error-container {
+  text-align: center;
+  padding: 80px;
+  color: #c00;
+}
+
+/* Modal */
+/* 🎯 Modale dynamique et moderne */
+/* 🎯 Modale dynamique et moderne avec fond translucide */
+/* 🎯 Modale dynamique avec icône d'alerte et effet shake */
+.modal-suppr-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(30, 30, 30, 0.5); /* Fond légèrement transparent */
+  backdrop-filter: blur(6px); /* Flou en arrière-plan */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.4s ease-out forwards;
+
+}
+
+/* Contenu de la modale avec fond transparent mais élégant */
+.modal-suppr-content {
+  background: rgba(255, 255, 255, 0.85); /* Contenu légèrement transparent */
+  border-radius: 16px;
+  padding: 2rem;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  animation: slideUp 0.5s ease-out;
+  text-align: center;
+  backdrop-filter: blur(5px); /* Ajout d'un léger flou pour un effet de profondeur */
+}
+
+.modal-suppr-content h2 {
+  margin-bottom: 1rem;
+  font-size: 1.6rem;
+  color: #222;
+}
+
+.modal-suppr-content p {
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  color: #444;
+}
+
+.modal-suppr-actions {
+  display: flex;
+  justify-content: space-around;
+  gap: 1rem;
+}
+
+/* 🎯 Icône d'alerte avant le texte */
+.modal-alert-icon {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+  color: #ff4d4f;
+  font-size: 1.8rem;
+  display: inline-block;
+}
+
+/* Style du bouton de confirmation et annulation */
+.btn-confirm,
+.btn-cancel {
+  padding: 0.6rem 1.2rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.3s;
+}
+
+.btn-confirm {
+  background: #ff4d4f;
+  color: white;
+}
+.btn-confirm:hover {
+  background: #d9363e;
+  transform: scale(1.05);
+}
+
+.btn-cancel {
+  background: #e0e0e0;
+  color: #333;
+}
+.btn-cancel:hover {
+  background: #c8c8c8;
+  transform: scale(1.05);
+}
+
+/* ✨ Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* 🚨 Effet de tremblement si clic rapide sur supprimer */
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
+}
+
+.shake {
+  animation: shake 0.5s ease-in-out;
+}
+/* ========== MODAL EDIT COURS ENSEIGNANT ========== */
+
+/* 🎓 MODAL EDITION DE COURS – ENSEIGNANT */
+.modal-edit-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(30, 30, 30, 0.4);
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.4s ease-out;
+}
+
+.modal-edit-content {
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 20px;
+  width: 95%;
+  max-width: 550px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  animation: zoomIn 0.4s ease-out;
+}
+
+/* Formulaire */
+.mes-cours-form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.mes-cours-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.mes-cours-form-control-select,
+.mes-cours-form input,
+.mes-cours-form textarea {
+  padding: 12px;
+  font-size: 1rem;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.mes-cours-form input:focus,
+.mes-cours-form textarea:focus,
+.mes-cours-form-control-select:focus {
+  outline: none;
+  border-color: #4facfe;
+  box-shadow: 0 0 8px rgba(79, 172, 254, 0.4);
+}
+
+.mes-cours-filepond {
+  border: 2px dashed #ccc;
+  border-radius: 12px;
+  transition: all 0.3s ease-in-out;
+}
+
+.mes-cours-filepond:hover {
+  border-color: #00bcd4;
+}
+
+/* Boutons d'action (Sauvegarder et Annuler) */
+.modal-edit-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 20px;
+}
+
+.submit-button {
+  color: white;
+  font-weight: bold;
+  font-size: 1.1rem;
+  padding: 12px 22px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+
+.submit-button:hover {
+  transform: scale(1.05);
+}
+
+.cancel-button {
+  background: #ff6b6b; /* rouge clair */
+  font-size: 1.1rem;
+
+}
+
+.cancel-button:hover {
+  background: #e63946; /* rouge plus foncé au survol */
+
+}
+
+/* EditQuiz.module.css */
+/* EditQuiz.css */
+/* EditQuiz.css */
+.edit-quiz-modal .modal-content {
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.edit-quiz-modal .modal-header {
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.edit-quiz-modal .modal-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.edit-quiz-modal .modal-body {
+  padding: 2rem;
+}
+
+.edit-quiz-form .form-group {
+  margin-bottom: 1.5rem;
+}
+
+.edit-quiz-form .form-label {
+  font-weight: 500;
+  color: #495057;
+}
+
+.edit-quiz-form .form-control {
+  border-radius: 5px;
+  border: 1px solid #ced4da;
+  padding: 0.75rem 1rem;
+}
+
+.edit-quiz-form .form-control:focus {
+  border-color: #80bdff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.edit-quiz-question {
+  border: 1px solid #e9ecef;
+  border-radius: 5px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  background-color: #f8f9fa;
+}
+
+.edit-quiz-question h5 {
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  color: #343a40;
+}
+
+.edit-quiz-option {
+  margin-bottom: 0.75rem;
+}
+
+.edit-quiz-option .form-check {
+  margin-top: 0.5rem;
+}
+
+.edit-quiz-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.edit-quiz-form .btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 5px;
+}
+
+.edit-quiz-form .btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #004085;
+}
+
+.edit-quiz-form .btn-cancel {
+  background-color: #6c757d;
+  border-color: #6c757d;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 5px;
+}
+
+.edit-quiz-form .btn-cancel:hover {
+  background-color: #5a6268;
+  border-color: #545b62;
+}
+.mes-cours-manage-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: #007bff; /* Couleur bleue pour "Gérer" */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.mes-cours-manage-btn:hover {
+  background-color: #0056b3; /* Couleur plus foncée au survol */
+}
+
+.mes-cours-manage-btn .icon-small {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+/* =====================================
+   CACHER LA PARTIE “PROGRESSION”
+   ===================================== */
+.mes-cours-card-progress {
+  display: none;
+}
+
+/* =====================================
+   CONTENEUR “RECHERCHE + FILTRE”
+   ===================================== */
+.mes-cours-controls {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+/* =====================================
+   CHAMP DE RECHERCHE
+   ===================================== */
+.mes-cours-search {
+  width: 250px;
+  padding: 0.6rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mes-cours-search:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+/* =====================================
+   SELECTEUR DE NIVEAU
+   ===================================== */
+.mes-cours-filter {
+  padding: 0.6rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  background: #ffffff;
+  cursor: pointer;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mes-cours-filter:focus {
+  outline: none;
+  border-color: #16a085;
+  box-shadow: 0 0 0 3px rgba(22, 160, 133, 0.2);
+}
+
+/* =====================================
+   BOUTON FORUM : COULEUR PERSONNALISÉE
+   ===================================== */
+.mes-cours-forum-btn {
+  background: #8e44ad; /* Violet pour distinguer du Gestion/Cours */
+  border: none;
+  color: #ffffff;
+  padding: 0.6rem 0.8rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.mes-cours-forum-btn .icon-small {
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.4rem;
+}
+
+.mes-cours-forum-btn:hover {
+  background: #732d91;
+  transform: translateY(-1px);
+}
+
+.mes-cours-forum-btn:active {
+  transform: translateY(0);
+}
+
+/* Ajoutez ces règles dans `coursUsers.css` */
+
+/* Style de base pour le select de filtrage par niveau */
+.mes-cours-filter {
+  appearance: none;              /* Supprime le style natif sur la plupart des navigateurs */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: #fff;        /* Fond blanc */
+  border: 1px solid #ccc;        /* Bord gris clair */
+  border-radius: 0.25rem;        /* Coins arrondis */
+  padding: 0.5rem 1rem;          /* Espace interne (haut/bas, gauche/droite) */
+  font-size: 0.95rem;            /* Taille de police ajustée */
+  color: #333;                   /* Couleur du texte */
+  cursor: pointer;               /* Curseur pointeur pour indiquer que c'est cliquable */
+  transition: border-color 0.2s, box-shadow 0.2s;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D'10'%20height%3D'6'%20viewBox%3D'0%200%2010%206'%20xmlns%3D'http%3A//www.w3.org/2000/svg'%3E%3Cpath%20d%3D'M0%200l5%206%205-6z'%20fill%3D'%23666'%20/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 10px 6px;
+}
+
+/* Survol et focus */
+.mes-cours-filter:hover {
+  border-color: #999;            /* Border un peu plus foncé au survol */
+}
+
+.mes-cours-filter:focus {
+  outline: none;
+  border-color: #007bff;         /* Bleu vif au focus */
+  box-shadow: 0 0 3px rgba(0, 123, 255, 0.5);
+}
+
+/* Largeur fixe ou responsive selon vos besoins */
+.mes-cours-filter {
+  width: 160px;                  /* Ajustez la largeur selon votre design */
+  max-width: 100%;
+}
+
+/* Si vous voulez un indicateur de flèche personnalisé plus grand */
+.mes-cours-filter.large-arrow {
+  background-position: right 1rem center;
+  background-size: 12px 8px;
+}
+
+/* Responsive : sur mobile, on peut agrandir la largeur */
+@media (max-width: 480px) {
+  .mes-cours-filter {
+    width: 100%;                 /* Prend toute la largeur du conteneur */
+    margin-top: 0.5rem;          /* Un petit espace au-dessus si besoin */
+  }
+}
+/* No Courses Error State */
+.no-cours {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px;
+  margin: 24px auto;
+  max-width: 600px; /* Limit width for readability */
+  width: 90%; /* Responsive width */
+  background-color: #ffffff; /* White background */
+  border: 1px solid #e2e8f0; /* Light gray border */
+  border-radius: 12px; /* Rounded corners */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+  text-align: center;
+  min-height: 240px; /* Ensure sufficient space */
+  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth hover effect */
+}
+
+.no-cours:hover {
+  transform: translateY(-2px); /* Slight lift on hover */
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1); /* Enhanced shadow */
+}
+
+/* Error Message */
+.no-cours-message,
+.no-cours p {
+  font-size: 18px;
+  line-height: 1.5;
+  color: #4a5568; /* Slate gray for text */
+  font-weight: 500;
+  margin: 0 0 24px 0;
+  max-width: 80%; /* Prevent text from touching edges */
+}
+
+/* Create New Course Button */
+.no-cours-button,
+.no-cours button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px; /* Space between icon and text */
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff; /* White text */
+  background-color: #2563eb; /* Blue primary color */
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.no-cours-button:hover,
+.no-cours button:hover {
+  background-color: #1d4ed8; /* Darker blue on hover */
+  transform: translateY(-1px); /* Subtle lift */
+}
+
+.no-cours-button:active,
+.no-cours button:active {
+  transform: translateY(0); /* Reset on click */
+}
+
+.no-cours-button .icon-small,
+.no-cours button .icon-small {
+  width: 20px;
+  height: 20px;
+  color: #ffffff; /* Match button text color */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .no-cours {
+    padding: 32px 16px;
+    margin: 16px auto;
+    min-height: 200px;
+    width: 95%;
+  }
+
+  .no-cours-message,
+  .no-cours p {
+    font-size: 16px;
+    max-width: 90%;
+    margin-bottom: 20px;
+  }
+
+  .no-cours-button,
+  .no-cours button {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+
+  .no-cours-button .icon-small,
+  .no-cours button .icon-small {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .no-cours {
+    padding: 24px 12px;
+    border-radius: 8px;
+  }
+
+  .no-cours-message,
+  .no-cours p {
+    font-size: 14px;
+  }
+
+  .no-cours-button,
+  .no-cours button {
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+}
+.edit-quiz-form textarea {
+  width: 100%;
+  min-height: 60px; /* Hauteur minimale */
+  max-height: 300px; /* Hauteur maximale */
+  overflow-y: auto; /* Barre de défilement si nécessaire */
+}
+.mes-cours-title {
+  font-size: 2.25rem;           /* Taille importante pour marquer la section */
+  font-weight: 700;
+  color: #1e3a8a;               /* Bleu foncé, ton éducatif */
+  text-align: center;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+/* Soulignement animé */
+.mes-cours-title::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -6px;
+  transform: translateX(-50%);
+  width: 0%;
+  height: 4px;
+  background: linear-gradient(90deg, #3b82f6, #60a5fa);
+  border-radius: 2px;
+  transition: width 0.4s ease;
+}
+
+.mes-cours-title:hover::after {
+  width: 60%;
+}
+
+/* -------------------------------------------------------------------------
+   Zone de filtres et recherche : disposition responsive en flexbox,
+   champs arrondis, ombre légère, focus coloré
+   ------------------------------------------------------------------------- */
+.mes-cours-controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+/* Champ de recherche */
+.mes-cours-search {
+  flex: 1 1 260px;
+  max-width: 300px;
+  padding: 0.75rem 1rem;
+  border: 2px solid #d1d5db;    /* Gris clair */
+  border-radius: 8px;
+  font-size: 1rem;
+  color: #374151;               /* Gris foncé */
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mes-cours-search::placeholder {
+  color: #9ca3af;               /* Gris moyen */
+}
+
+.mes-cours-search:focus {
+  border-color: #3b82f6;        /* Bleu vif */
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
+  outline: none;
+}
+
+/* Styles communs pour les selects */
+.mes-cours-filter {
+  flex: 1 1 200px;
+  max-width: 240px;
+  padding: 0.75rem 1rem;
+  border: 2px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 1rem;
+  color: #374151;
+  background-color: #ffffff;
+  appearance: none;             /* Masquer flèche par défaut */
+  background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 8L0 0h12L6 8z' fill='%239CA3AF'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 12px 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mes-cours-filter:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
+  outline: none;
+}
+
+/* Option styling (modern education vibe) */
+.mes-cours-filter option {
+  padding: 0.5rem;
+}
+
+/* -------------------------------------------------------------------------
+   Réactivité : ajustements pour écrans plus petits
+   ------------------------------------------------------------------------- */
+@media (max-width: 640px) {
+  .mes-cours-search,
+  .mes-cours-filter {
+    max-width: 100%;
+    flex: 1 1 100%;
+  }
+  .mes-cours-controls {
+    gap: 0.75rem;
+  }
+}
+.mescours-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 2rem;
+  text-align: center;
+  position: relative;
+  color: var(--mescours-text-primary);
+  padding-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+.mescours-title::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--mescours-primary), var(--mescours-accent));
+  border-radius: 2px;
+}
+
+.mescours-title::after {
+  content: "🎓";
+  position: absolute;
+  top: -15px;
+  right: calc(50% - 100px);
+  font-size: 2rem;
+  animation: mescours-float 3s ease-in-out infinite;
+}
+
+@keyframes mescours-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+/* ===== VARIABLES CSS POUR MES COURS COMPLET ===== */
+:root {
+  --mescours-primary: #4f46e5;
+  --mescours-primary-dark: #3730a3;
+  --mescours-primary-light: #6366f1;
+  --mescours-secondary: #06b6d4;
+  --mescours-accent: #f59e0b;
+  --mescours-success: #10b981;
+  --mescours-error: #ef4444;
+  --mescours-warning: #f59e0b;
+  --mescours-background: #ffffff;
+  --mescours-surface: #f8fafc;
+  --mescours-surface-hover: #f1f5f9;
+  --mescours-text-primary: #0f172a;
+  --mescours-text-secondary: #475569;
+  --mescours-text-tertiary: #94a3b8;
+  --mescours-border: #e2e8f0;
+  --mescours-border-hover: #cbd5e1;
+  --mescours-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --mescours-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --mescours-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --mescours-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --mescours-radius-sm: 0.375rem;
+  --mescours-radius-md: 0.5rem;
+  --mescours-radius-lg: 0.75rem;
+  --mescours-radius-xl: 1rem;
+  --mescours-radius-2xl: 1.5rem;
+  --mescours-transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --mescours-transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ===== ANIMATIONS GLOBALES ===== */
+@keyframes mescours-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes mescours-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(79, 70, 229, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(79, 70, 229, 0);
+  }
+}
+
+@keyframes mescours-gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes mescours-fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes mescours-scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes mescours-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ===== CONTENEUR PRINCIPAL ===== */
+
+
+/* ===== TITRE MES COURS ===== */
+.mes-cours-title {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 3rem;
+  text-align: center;
+  position: relative;
+  color: var(--mescours-text-primary);
+  padding-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, var(--mescours-primary), var(--mescours-accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.mes-cours-title::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--mescours-primary), var(--mescours-accent), var(--mescours-secondary));
+  border-radius: 2px;
+  background-size: 200% 100%;
+  animation: mescours-gradient 3s ease infinite;
+}
+
+.mes-cours-title::after {
+  content: "🎓";
+  position: absolute;
+  top: -20px;
+  right: calc(50% - 120px);
+  font-size: 2.5rem;
+  animation: mescours-float 3s ease-in-out infinite;
+}
+
+/* ===== SECTION FILTRES ===== */
+.mes-cours-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+  padding: 2rem;
+  background: linear-gradient(135deg, rgba(79, 70, 229, 0.08) 0%, rgba(6, 182, 212, 0.08) 100%);
+  border-radius: var(--mescours-radius-2xl);
+  box-shadow: var(--mescours-shadow-lg);
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.mes-cours-controls::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+}
+
+
+
+/* ===== BARRE DE RECHERCHE ===== */
+.mes-cours-search {
+  flex: 1;
+  min-width: 300px;
+  padding: 1.25rem 1.75rem;
+  border: 2px solid var(--mescours-border);
+  border-radius: var(--mescours-radius-xl);
+  font-size: 1.1rem;
+  background: white;
+  transition: all var(--mescours-transition);
+  position: relative;
+  z-index: 2;
+  box-shadow: var(--mescours-shadow-md);
+  font-weight: 500;
+}
+
+.mes-cours-search:focus {
+  outline: none;
+  border-color: var(--mescours-primary);
+  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.2), var(--mescours-shadow-lg);
+  transform: translateY(-3px);
+}
+
+.mes-cours-search::placeholder {
+  color: var(--mescours-text-secondary);
+  opacity: 0.8;
+  font-weight: 400;
+}
+
+/* ===== FILTRES DROPDOWN ===== */
+.mes-cours-filter {
+  padding: 1.25rem 3rem 1.25rem 1.75rem;
+  border: 2px solid var(--mescours-border);
+  border-radius: var(--mescours-radius-xl);
+  font-size: 1rem;
+  font-weight: 500;
+  background-color: white;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23475569' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1.25rem center;
+  background-size: 20px;
+  appearance: none;
+  cursor: pointer;
+  transition: all var(--mescours-transition);
+  position: relative;
+  z-index: 2;
+  box-shadow: var(--mescours-shadow-md);
+}
+
+.mes-cours-filter:focus {
+  outline: none;
+  border-color: var(--mescours-primary);
+  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.2), var(--mescours-shadow-lg);
+  transform: translateY(-3px);
+}
+
+.mes-cours-filter:hover {
+  border-color: var(--mescours-primary-light);
+  background-color: var(--mescours-surface);
+}
+
+.mes-cours-filter option {
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* ===== GRILLE DE COURS ===== */
+.mes-cours-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+/* ===== CARTES DE COURS ===== */
+
+
+/* ===== EN-TÊTE DE CARTE ===== */
+
+
+/* ===== CONTENU DE CARTE ===== */
+
+
+
+
+/* ===== ACTIONS DE CARTE ===== */
+
+
+/* ===== BOUTONS D'ACTION ===== */
+.mes-cours-edit-btn,
+.mes-cours-delete-btn,
+.mes-cours-manage-btn,
+.mes-cours-forum-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1rem;
+  border: none;
+  border-radius: var(--mescours-radius-lg);
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all var(--mescours-transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.mes-cours-edit-btn {
+  background: linear-gradient(135deg,  #08b23b);
+  color: white;
+}
+
+.mes-cours-edit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(6, 212, 54, 0.739);
+}
+
+.mes-cours-delete-btn {
+  background: linear-gradient(135deg, var(--mescours-error), #dc2626);
+  color: white;
+}
+
+.mes-cours-delete-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(239, 68, 68, 0.3);
+}
+
+.mes-cours-manage-btn {
+  background: linear-gradient(135deg);
+  color: white;
+}
+
+.mes-cours-manage-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(107, 101, 215, 0.965);
+}
+
+.mes-cours-forum-btn {
+  background: linear-gradient(135deg,  #b60cea);
+  color: white;
+}
+
+.mes-cours-forum-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(245, 158, 11, 0.3);
+}
+
+/* Effet de brillance sur les boutons */
+.mes-cours-edit-btn::before,
+.mes-cours-delete-btn::before,
+.mes-cours-manage-btn::before,
+.mes-cours-forum-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.mes-cours-edit-btn:hover::before,
+.mes-cours-delete-btn:hover::before,
+.mes-cours-manage-btn:hover::before,
+.mes-cours-forum-btn:hover::before {
+  left: 100%;
+}
+
+.icon-small {
+  width: 1.125rem;
+  height: 1.125rem;
+}
+
+/* ===== ÉTAT AUCUN COURS ===== */
+.no-cours {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: white;
+  border-radius: var(--mescours-radius-2xl);
+  box-shadow: var(--mescours-shadow-lg);
+  border: 2px dashed var(--mescours-border);
+  animation: mescours-scaleIn 0.6s ease-out;
+}
+
+.no-cours-message {
+  font-size: 1.25rem;
+  color: var(--mescours-text-secondary);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.no-cours-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, var(--mescours-primary), var(--mescours-primary-dark));
+  color: white;
+  border: none;
+  border-radius: var(--mescours-radius-xl);
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all var(--mescours-transition);
+  box-shadow: var(--mescours-shadow-lg);
+}
+
+.no-cours-button:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--mescours-shadow-xl);
+}
+
+/* ===== ÉTATS DE CHARGEMENT ===== */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  gap: 2rem;
+}
+
+.spinner {
+  width: 60px;
+  height: 60px;
+  border: 4px solid var(--mescours-border);
+  border-top: 4px solid var(--mescours-primary);
+  border-radius: 50%;
+  animation: mescours-spin 1s linear infinite;
+}
+
+.loading-container p {
+  font-size: 1.25rem;
+  color: var(--mescours-text-secondary);
+  font-weight: 500;
+}
+
+/* ===== ÉTAT D'ERREUR ===== */
+.error-container {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: white;
+  border-radius: var(--mescours-radius-2xl);
+  box-shadow: var(--mescours-shadow-lg);
+  border-left: 6px solid var(--mescours-error);
+}
+
+.error-container h3 {
+  color: var(--mescours-error);
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.error-container p {
+  color: var(--mescours-text-secondary);
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.error-container button {
+  padding: 0.875rem 1.5rem;
+  background: var(--mescours-error);
+  color: white;
+  border: none;
+  border-radius: var(--mescours-radius-lg);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--mescours-transition);
+}
+
+.error-container button:hover {
+  background: #dc2626;
+  transform: translateY(-2px);
+}
+
+/* ===== MODAL DE SUPPRESSION ===== */
+.modal-suppr-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: mescours-fadeInUp 0.3s ease-out;
+}
+
+.modal-suppr-content {
+  background: white;
+  border-radius: var(--mescours-radius-2xl);
+  padding: 2.5rem;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: var(--mescours-shadow-xl);
+  animation: mescours-scaleIn 0.3s ease-out;
+  border: 1px solid var(--mescours-border);
+}
+
+.modal-suppr-content h2 {
+  color: var(--mescours-text-primary);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.modal-suppr-content p {
+  color: var(--mescours-text-secondary);
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  line-height: 1.6;
+}
+
+.modal-suppr-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.btn-confirm,
+.btn-cancel {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.5rem;
+  border: none;
+  border-radius: var(--mescours-radius-lg);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--mescours-transition);
+  font-size: 1rem;
+}
+
+.btn-confirm {
+  background: linear-gradient(135deg, var(--mescours-error), #dc2626);
+  color: white;
+}
+
+.btn-confirm:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(239, 68, 68, 0.3);
+}
+
+.btn-cancel {
+  background: var(--mescours-surface);
+  color: var(--mescours-text-secondary);
+  border: 2px solid var(--mescours-border);
+}
+
+.btn-cancel:hover {
+  background: var(--mescours-surface-hover);
+  border-color: var(--mescours-border-hover);
+  transform: translateY(-2px);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .mes-cours-grid {
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .mes-cours-container {
+    padding: 1rem;
+  }
+
+  .mes-cours-title {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .mes-cours-controls {
+    flex-direction: column;
+    padding: 1.5rem;
+    gap: 1rem;
+  }
+
+  .mes-cours-search,
+  .mes-cours-filter {
+    width: 100% !important;
+    min-width: 0;
+  }
+
+  .mes-cours-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .mes-cours-action-row {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .modal-suppr-content {
+    padding: 2rem;
+    margin: 1rem;
+  }
+
+  .modal-suppr-actions {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .mes-cours-title {
+    font-size: 2rem;
+  }
+
+  .mes-cours-title::after {
+    font-size: 2rem;
+    right: calc(50% - 80px);
+  }
+
+  .mes-cours-card-header {
+    height: 180px;
+  }
+
+  .mes-cours-card-title {
+    font-size: 1.25rem;
+    padding: 1.5rem 1rem 1rem;
+  }
+}
+
+/* ===== ACCESSIBILITÉ ===== */
+@media (prefers-reduced-motion: reduce) {
+  .mes-cours-title::after,
+  .mes-cours-controls:hover::after,
+  .spinner,
+  .mes-cours-card,
+  .modal-suppr-overlay,
+  .modal-suppr-content {
+    animation: none;
+  }
+
+  .mes-cours-search:focus,
+  .mes-cours-filter:focus,
+  .mes-cours-card:hover,
+  .mes-cours-edit-btn:hover,
+  .mes-cours-delete-btn:hover,
+  .mes-cours-manage-btn:hover,
+  .mes-cours-forum-btn:hover,
+  .no-cours-button:hover,
+  .btn-confirm:hover,
+  .btn-cancel:hover {
+    transform: none;
+  }
+}
+
+/* ===== FOCUS STYLES POUR L'ACCESSIBILITÉ ===== */
+.mes-cours-search:focus-visible,
+.mes-cours-filter:focus-visible,
+.mes-cours-edit-btn:focus-visible,
+.mes-cours-delete-btn:focus-visible,
+.mes-cours-manage-btn:focus-visible,
+.mes-cours-forum-btn:focus-visible,
+.no-cours-button:focus-visible,
+.btn-confirm:focus-visible,
+.btn-cancel:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.5);
+}
+
+/* ===== SÉLECTION DE TEXTE ===== */
+::selection {
+  background-color: rgba(79, 70, 229, 0.2);
+  color: var(--mescours-text-primary);
+}
+.mes-cours-dashboard .dashboard-metric {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f8f9fa; /* couleur de fond douce */
+  padding: 1rem 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1.5rem;
+}
+.mes-cours-dashboard .dashboard-metric h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #343a40;
+}
+.mes-cours-dashboard .dashboard-metric .metric-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #17a2b8; /* accent bleu */
+}

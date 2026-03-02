@@ -1,0 +1,418 @@
+/* Modern Educational Test Styling */
+
+/* Global Variables */
+:root {
+  --primary: #4f46e5;
+  --primary-light: #818cf8;
+  --primary-dark: #4338ca;
+  --secondary: #10b981;
+  --secondary-light: #34d399;
+  --danger: #ef4444;
+  --danger-light: #fca5a5;
+  --background: #f8fafc;
+  --surface: #ffffff;
+  --text-primary: #1e293b;
+  --text-secondary: #64748b;
+  --border-radius: 12px;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+}
+
+/* Test Page Container */
+.test-page-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+}
+
+.test-page-title {
+  font-size: 2.5rem !important;
+  color: var(--text-primary);
+  margin-bottom: 2rem !important;
+  text-align: center;
+  font-weight: 700 !important;
+  background: linear-gradient(120deg, var(--primary), var(--primary-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Test Card */
+.test-card {
+  background: var(--surface) !important;
+  border-radius: var(--border-radius) !important;
+  box-shadow: var(--shadow-lg) !important;
+  transition: var(--transition);
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.test-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg), 0 20px 25px -5px rgba(0, 0, 0, 0.1) !important;
+}
+
+.test-card-content {
+  padding: 2rem !important;
+}
+
+.test-title {
+  font-size: 1.75rem !important;
+  color: var(--text-primary);
+  margin-bottom: 1rem !important;
+  font-weight: 600 !important;
+}
+
+.test-description {
+  color: var(--text-secondary);
+  font-size: 1.1rem !important;
+  margin-bottom: 2rem !important;
+  line-height: 1.6 !important;
+}
+
+/* Question Container */
+.question-container {
+  background: rgba(79, 70, 229, 0.03);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(79, 70, 229, 0.1);
+  transition: var(--transition);
+}
+
+.question-container:hover {
+  background: rgba(79, 70, 229, 0.05);
+  transform: scale(1.01);
+}
+
+.question-text {
+  color: var(--text-primary) !important;
+  font-weight: 600 !important;
+  font-size: 1.2rem !important;
+  margin-bottom: 1rem !important;
+}
+
+/* Options List */
+.option-list {
+  padding: 0.5rem 0 !important;
+}
+
+.option-item {
+  padding: 0.75rem 1rem !important;
+  margin-bottom: 0.5rem !important;
+  background: var(--surface);
+  border-radius: var(--border-radius);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: var(--transition);
+}
+
+.option-item:hover {
+  background: rgba(79, 70, 229, 0.02);
+}
+
+.option-text {
+  color: var(--text-primary) !important;
+  font-size: 1rem !important;
+}
+
+.correct-text {
+  color: var(--secondary) !important;
+  font-weight: 600 !important;
+}
+
+/* Action Buttons */
+.action-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.edit-button {
+  background-color: var(--primary) !important;
+  color: white !important;
+  padding: 0.5rem 1rem !important;
+  border-radius: var(--border-radius) !important;
+  text-transform: none !important;
+  font-weight: 500 !important;
+  transition: var(--transition) !important;
+}
+
+.edit-button:hover {
+  background-color: var(--primary-dark) !important;
+  transform: translateY(-2px);
+}
+
+.delete-button {
+  background-color: var(--danger) !important;
+  color: white !important;
+  padding: 0.5rem 1rem !important;
+  border-radius: var(--border-radius) !important;
+  text-transform: none !important;
+  font-weight: 500 !important;
+  transition: var(--transition) !important;
+}
+
+.delete-button:hover {
+  background-color: var(--danger-light) !important;
+  transform: translateY(-2px);
+}
+
+/* Modal Styles */
+.question-edit-modal,
+.edit-test-modal {
+  border-radius: var(--border-radius) !important;
+  overflow: hidden;
+}
+
+.modal-header {
+  display: flex;
+   color: #fff;
+  justify-content: center;        /* centre horizontalement le contenu */
+  align-items: center;            /* centre verticalement le contenu */
+  padding: 1.5rem;
+  background: linear-gradient(
+    120deg,
+    var(--primary) 0%,
+    var(--primary-light) 100%
+  );
+  border-top-left-radius: 0.5rem; /* arrondit légèrement les coins */
+  border-top-right-radius: 0.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* ombre portée subtile */
+}
+.question-edit-title {
+  color: #ffffff !important; /* Blanc pour un contraste élevé */
+  font-size: 1.6rem; /* Légèrement plus grand pour un impact visuel */
+  font-weight: 600; /* Poids audacieux pour une apparence moderne */
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif; /* Police moderne, compatible Material-UI */
+  text-align: center; /* Centrage du texte */
+  padding: 16px 24px; /* Espacement interne */
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%); /* Dégradé bleu-violet */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre subtile */
+  border-top-left-radius: 8px; /* Coins arrondis en haut */
+  border-top-right-radius: 8px;
+  transition: background 0.3s ease, transform 0.2s ease; /* Transitions fluides */
+}
+
+.question-edit-title:hover {
+  background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%); /* Dégradé plus foncé au survol */
+  transform: translateY(-2px); /* Léger soulèvement au survol */
+}
+.modal-title {
+  flex: 1;                        /* prend tout l’espace restant */
+  text-align: center;             /* centre le texte */
+  color: #fff;                    /* blanc, plus simple qu’!important */
+  font-weight: 600;               /* toujours semi-bold */
+  font-size: 1.25rem;             /* taille un peu plus grande */
+  letter-spacing: 0.5px;          /* espacement des lettres pour aérer */
+  margin: 0;                      /* supprime les marges par défaut */
+}
+
+.modal-content {
+  padding: 2rem !important;
+}
+.modal-body {
+  padding: 2rem 1.5rem;
+  color: #000000;
+  font-size: 1rem;
+  line-height: 1.5;
+
+  /* un léger effet de relief interne */
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+}
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background: rgba(255, 255, 255, 0.12);
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+/* BOUTONS GÉNÉRIQUES */
+.modal-footer button {
+  margin-left: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 0.75rem;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.input-container,
+.option-container {
+  margin-bottom: 1.5rem;
+}
+
+.modal-textfield {
+  margin-bottom: 1rem !important;
+}
+
+.textfield-label {
+  color: var(--text-secondary) !important;
+}
+
+.textfield-input {
+  border-radius: var(--border-radius) !important;
+}
+
+.checkbox {
+  color: var(--primary) !important;
+}
+
+.checkbox-label {
+  color: var(--text-secondary) !important;
+}
+
+.modal-actions {
+  padding: 1.5rem !important;
+  background: rgba(79, 70, 229, 0.02);
+}
+
+.cancel-button {
+  color: white !important;
+  background-color: var(--red, #dc3545) !important; /* rouge Bootstrap par défaut */
+  text-transform: none !important;
+  font-weight: 500 !important;
+  padding: 0.5rem 1.5rem !important;
+  border-radius: var(--border-radius) !important;
+  transition: var(--transition) !important;
+  border: none !important;
+}
+
+.cancel-button:hover {
+  background-color: #b02a37 !important; /* rouge plus foncé au survol */
+  color: white !important;
+}
+
+.save-button {
+  background: var(--green, #198754) !important; /* vert Bootstrap */
+  color: white !important;
+  text-transform: none !important;
+  font-weight: 500 !important;
+  padding: 0.5rem 1.5rem !important;
+  border-radius: var(--border-radius) !important;
+  transition: var(--transition) !important;
+  border: none !important;
+}
+
+.save-button:hover {
+  background: #146c43 !important; /* vert foncé au survol */
+  transform: translateY(-2px);
+  color: white !important;
+}
+
+
+/* Loading and Error States */
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+}
+
+.loading-spinner {
+  color: var(--primary) !important;
+}
+
+.error-container {
+  text-align: center;
+  padding: 3rem;
+  background: rgba(239, 68, 68, 0.05);
+  border-radius: var(--border-radius);
+  margin: 2rem 0;
+}
+
+.error-text {
+  color: var(--danger) !important;
+}
+
+.no-test-text {
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 1.2rem !important;
+  margin: 3rem 0;
+}
+
+/* Global Edit Button */
+.global-edit-container {
+  padding: 1.5rem;
+  text-align: center;
+  background: rgba(79, 70, 229, 0.02);
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.global-edit-button {
+  background: linear-gradient(120deg, var(--primary), var(--primary-light)) !important;
+  color: white !important;
+  padding: 0.75rem 2rem !important;
+  font-size: 1.1rem !important;
+  border-radius: var(--border-radius) !important;
+  text-transform: none !important;
+  font-weight: 500 !important;
+  transition: var(--transition) !important;
+  box-shadow: var(--shadow-md) !important;
+}
+
+.global-edit-button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg) !important;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.question-container,
+.option-item {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .test-page-container {
+    padding: 0 1rem;
+  }
+
+  .test-page-title {
+    font-size: 2rem !important;
+  }
+
+  .test-card-content {
+    padding: 1.5rem !important;
+  }
+
+  .question-container {
+    padding: 1rem;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+  }
+
+  .edit-button,
+  .delete-button {
+    width: 100%;
+  }
+}
+.test-page-container .scroll-buttons {
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 2000;
+}
+
