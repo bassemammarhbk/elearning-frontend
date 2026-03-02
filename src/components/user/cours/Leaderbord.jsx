@@ -11,7 +11,7 @@ const Standings = () => {
   useEffect(() => {
     getLeaderboard()
       .then((data) => {
-        setClassement(data.slice(0, 10))
+        setClassement(data.filter(etu => etu.userId).slice(0, 10))
         setLoading(false)
       })
       .catch((error) => {
@@ -22,27 +22,19 @@ const Standings = () => {
 
   const getRankIcon = (index) => {
     switch (index) {
-      case 0:
-        return "🥇"
-      case 1:
-        return "🥈"
-      case 2:
-        return "🥉"
-      default:
-        return `#${index + 1}`
+      case 0: return "🥇"
+      case 1: return "🥈"
+      case 2: return "🥉"
+      default: return `#${index + 1}`
     }
   }
 
   const getRankClass = (index) => {
     switch (index) {
-      case 0:
-        return "rank-gold"
-      case 1:
-        return "rank-silver"
-      case 2:
-        return "rank-bronze"
-      default:
-        return "rank-default"
+      case 0: return "rank-gold"
+      case 1: return "rank-silver"
+      case 2: return "rank-bronze"
+      default: return "rank-default"
     }
   }
 
@@ -70,7 +62,6 @@ const Standings = () => {
 
   return (
     <div className="standings-container">
-      {/* Header Section */}
       <div className="standings-header">
         <div className="header-content">
           <h1 className="standings-title">
@@ -83,7 +74,6 @@ const Standings = () => {
         </div>
       </div>
 
-      {/* Motivational Section */}
       <div className="motivation-section">
         <div className="motivation-card">
           <div className="motivation-icon">💡</div>
@@ -92,7 +82,6 @@ const Standings = () => {
         </div>
       </div>
 
-      {/* Leaderboard */}
       <div className="leaderboard-section">
         <div className="section-header">
           <h2>🎯 Top 10 des Apprenants</h2>
@@ -109,14 +98,14 @@ const Standings = () => {
               <div className="student-info">
                 <div className="student-avatar">
                   <span className="avatar-text">
-                    {etu.userId.firstname.charAt(0)}
-                    {etu.userId.lastname.charAt(0)}
+                    {etu.userId?.firstname?.charAt(0)}
+                    {etu.userId?.lastname?.charAt(0)}
                   </span>
                 </div>
 
                 <div className="student-details">
                   <h3 className="student-name">
-                    {etu.userId.firstname} {etu.userId.lastname}
+                    {etu.userId?.firstname} {etu.userId?.lastname}
                   </h3>
                   <div className="student-stats">
                     <span className="points-badge">
@@ -129,7 +118,9 @@ const Standings = () => {
 
               {idx < 3 && (
                 <div className="achievement-badge">
-                  <span className="achievement-text">{idx === 0 ? "Champion" : idx === 1 ? "Expert" : "Talent"}</span>
+                  <span className="achievement-text">
+                    {idx === 0 ? "Champion" : idx === 1 ? "Expert" : "Talent"}
+                  </span>
                 </div>
               )}
             </div>
@@ -137,10 +128,6 @@ const Standings = () => {
         </div>
       </div>
 
-      {/* Challenge Section */}
-
-
-      {/* Footer Motivation */}
       <div className="footer-motivation">
         <div className="motivation-quote">
           <blockquote>
