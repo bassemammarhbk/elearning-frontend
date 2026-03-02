@@ -1,7 +1,6 @@
 import axios from '../api/axios' ;
 
-const user_Api = '/users';
-
+const user_Api = '';
 export const getProfile = async () => {
   const token = localStorage.getItem('CC_Token');
   if (!token) {
