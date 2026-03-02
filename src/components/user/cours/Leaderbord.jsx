@@ -2,6 +2,10 @@
 
 import { useEffect, useState } from "react"
 import { getLeaderboard } from "../../../services/userservice"
+import { useNavigate } from "react-router-dom"
+
+// Dans le composant ajoute :
+const navigate = useNavigate()
 import "./standings.css"
 
 const Standings = () => {
@@ -139,10 +143,10 @@ const Standings = () => {
         <div className="call-to-action">
           <h3>Prêt à gravir les échelons ?</h3>
           <p>Continuez à apprendre, participez aux quiz, et regardez votre classement s'améliorer !</p>
-          <button className="cta-button">
-            <span>🎓</span>
-            Découvrir les cours
-          </button>
+          <button className="cta-button" onClick={() => navigate('/filieres')}>
+  <span>🎓</span>
+  Découvrir les filières
+</button>
         </div>
       </div>
     </div>
